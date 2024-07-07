@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <meta charset="UTF-8"/>
+        <title>Robot Control</title>
+        <link rel="stylesheet" type="text/css" href="css/main.css">
+        <style>
+            body{
+                font-family: 'Times New Roman';
+                text-align: center;
+            }
+            .stop-button{
+                background-color: red;
+                color: white;
+            }
+            button{
+            padding: 10px 20px;
+            margin: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-family: 'Times New Roman';
+            font-weight: 600;
+            }
+            .forward{
+                background-color: aliceblue;
+            }
+            .left{
+                background-color: aquamarine;
+            }
+            .right{
+                background-color: rgb(216, 181, 249);
+            }
+            .backward{
+                background-color: rgb(77, 77, 255);
+            }
+        </style>
+    </head>
+
+    <body>
+        <h1> Robot Control </h1>
+        <div style="display: inline-block;">
+            <button onclick="move('forward')" style="margin-bottom: 20px;" class="forward">forward</button>
+            <div>
+                <button onclick="move('left')" style="margin-right: 20px;" class="left">left</button>
+                <button onclick="move('stop')" class="stop-button">stop</button>
+                <button onclick="move('right')" style="margin-left: 20px;" class="right">right</button>
+            </div>
+            <button onclick="move('backward')" style="margin-top: 20px;" class="backward">backward</button>
+        </div>
+        <script>
+            function move(direction) {
+                const xhr = new XMLHttpRequest();
+                xhr.open("POST", "command.php", true);
+                xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+                xhr.onreadystatechange = function() {
+                    if (xhr.readyState === XMLHttpRequest.DONE) {
+                        console.log(xhr.responseText);
+                    }
+                };
+                xhr.send("command=" + direction);
+            }
+        </script>
+    </body>
+</html>
