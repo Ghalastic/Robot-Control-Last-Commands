@@ -1,6 +1,6 @@
 # Task 2 - Robot direction Control (Last Stored Value)
 ####
-##### Create a web page to display last stored data (last value).
+Create a web page to display the last stored data (last Command).
 ####
 ## Steps:-
 ####
