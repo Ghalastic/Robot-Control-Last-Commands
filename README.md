@@ -1,4 +1,4 @@
-# Task 2 - Robot direction Control (Last Stored Value)
+# Task 2 - Robot direction Control (Last Stored Data)
 ####
 Create a web page to display the last stored data (last Command).
 ####
